@@ -293,9 +293,9 @@ class ResultDetailCard extends React.Component {
   };
 
   checkGear(skills) {
-    const shiny = skills.subs.reduce((a, b) => {
-      return a && b && b.id === skills.subs[0].id;
-    }, true);
+    const shiny = skills.subs.every(sub => {
+      return sub && sub.id === skills.subs[0].id && sub.id !== '255';
+    });
     if (shiny) {
       if (skills.subs[0].id === skills.main.id) {
         return 'pure';

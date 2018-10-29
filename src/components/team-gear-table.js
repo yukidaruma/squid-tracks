@@ -53,9 +53,9 @@ const AbilityCell = ({ skills }) => {
   const subHeight = 20;
   const background = '#777';
 
-  const shiny = skills.subs.reduce((a, b) => {
-    return a && b && b.id === skills.subs[0].id;
-  }, true);
+  const shiny = skills.subs.every(sub => {
+    return sub && sub.id === skills.subs[0].id && sub.id !== '255';
+  });
 
   let bgcolor = 'darkgrey';
   if (shiny) {
